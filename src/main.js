@@ -1,14 +1,14 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import App from './App.vue';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.min'
-import $ from 'jquery'
+import $ from 'jquery';
+import 'bootstrap/dist/js/bootstrap.min';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './main.css';
 
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-    mode:'history',
     routes: [{
         path: '/',
         component: (resolve) => require(['./App.vue'], resolve)

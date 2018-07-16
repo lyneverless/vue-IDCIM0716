@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div class="menu">
         <!-- BEGIN LEFT BODY-->
         <div class="left_body">
             <!-- BEGIN LOGIN_INFO -->
             <div class="login_info">
                 <div class="pull-top image">
-                    <img src="/IDCIM/images/user.jpg" class="img-circle" alt="头像">
+                    <img src="./imgs/user.jpg" class="img-circle" alt="头像">
                 </div>
                 <div class="pull-bottom info">
                     <p class="username" id="view_name"></p>
@@ -136,50 +136,28 @@
 
 <script>
     export default {
-        name: "App"
+        name: "App",
+        // created() {
+        //     $('.login_info img').attr('src', '/user.jpg');
+        // }
     }
 </script>
 
 <style scoped>
-    html, body {
-        width: 100%;
-        height: 100%;
-    }
-
-    html {
-        overflow: auto;
-    }
-
-    body {
-        /*width: 1920px;*/
-        /*height: 969px;*/
-        display: flex;
-        flex-direction: row;
-        overflow-y: hidden;
-    }
-
-    /*@media screen and (min-width: 1920px) {*/
-    /*html, body {*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-    /*}*/
-    /*}*/
-
-    /*@media screen and (min-height: 969px) {*/
-    /*html, body {*/
-    /*height: 100%;*/
-    /*}*/
-    /*}*/
-
     div {
         margin: 0;
         padding: 0;
     }
 
+    .menu {
+        width: 100%;
+        height: 100%;
+    }
+
     .left_body {
         height: 100%;
         width: 10%;
-        /*background-image: url("../../../images/bg_left_nav.png");*/
+        background-image: url("./imgs/bg_left_nav.png");
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -390,17 +368,12 @@
         width: 100%;
         /*display: flex;*/
         flex-direction: row;
-        border-bottom-width: 2px;
-        border-bottom-color: rgb(45, 60, 80);
-        border-bottom-style: solid;
+        border-bottom: 2px solid rgb(45,60,80);
         background-color: #fcfeff;
     }
 
     .nav_style {
-        padding-top: 8px;
-        padding-bottom: auto;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding: 8px 10px auto;
     }
 
     .glyphicon-step-backward,
@@ -428,7 +401,6 @@
         padding-bottom: auto;
         padding-left: 10px;
         padding-right: 10px;
-        padding-top: 8px;
         cursor: pointer;
     }
 

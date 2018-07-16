@@ -5,8 +5,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const webpack = require('webpack');
 
 module.exports = {
-    mode: 'production',
-    entry: "./src/main.js",
+    entry: path.resolve(__dirname, '../src/main.js'),
     plugins: [
         new HtmlWebpackPlugin({
             title: 'title10',
