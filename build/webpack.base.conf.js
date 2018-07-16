@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const webpack = require('webpack');
 
 module.exports = {
     mode: 'production',
@@ -12,7 +13,11 @@ module.exports = {
             template: './index.html'
         }),
         new ExtractTextPlugin('[name].css'),
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        })
     ],
     module: {
         rules: [{
@@ -27,9 +32,17 @@ module.exports = {
         }, {
             test: /\.(woff2?|ttf|eot|otf)$/,
             use: ['file-loader']
-        },{
+        }, {
             test: /\.vue$/,
-            loader: 'vue-loader'
+            loader: 'vue-loader',
+            options: {
+                loaders: {
+                    css: ExtractTextPlugin.extract({
+                        use: 'css-loader',
+                        fallback: 'vue-style-loader'
+                    })
+                }
+            }
         }]
     }
 };

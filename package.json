@@ -8,8 +8,13 @@
     "build": "webpack --config build/webpack.base.conf.js"
   },
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "css-loader": "^1.0.0",
     "element-ui": "^2.4.3",
+    "file-loader": "^1.1.11",
+    "jquery": "^3.3.1",
+    "popper": "^1.0.1",
+    "popper.js": "^1.14.3",
     "style-loader": "^0.21.0"
   },
   "devDependencies": {

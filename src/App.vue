@@ -179,7 +179,7 @@
     .left_body {
         height: 100%;
         width: 10%;
-        background-image: url("../../../images/bg_left_nav.png");
+        /*background-image: url("../../../images/bg_left_nav.png");*/
         background-repeat: no-repeat;
         background-size: cover;
     }
