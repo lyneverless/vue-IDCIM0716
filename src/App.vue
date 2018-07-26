@@ -17,24 +17,26 @@
             <!-- END LOGIN_INFO -->
             <!-- BEGIN NAVBAR -->
             <div class="myNavbar">
+                <router-link to="/air_cdt">精密空调</router-link>
+                <router-link to="/data_input">数据记录</router-link>
                 <!-- BEGIN SIDEBAR MENU -->
-                <ul id="navbarTab">
-                    <!--<li id="homelink"><span class="glyphicon glyphicon-home"></span> <span>首页大屏</span></li>-->
-                    <li id="eleclink"><span class="glyphicon glyphicon-flash"></span> <span>电力设施</span><span
-                            class="badge"></span></li>
-                    <li id="airlink"><span class="glyphicon glyphicon-scale"></span> <span>精密空调</span><span
-                            class="badge"></span></li>
-                    <li id="UPSlink"><span class="glyphicon glyphicon-hdd"></span> <span>UPS设备</span><span
-                            class="badge"></span></li>
-                    <li id="securelink"><span class="glyphicon glyphicon-cd"></span> <span>安防设施</span><span
-                            class="badge"></span></li>
-                    <li id="firelink"><span class="glyphicon glyphicon-fire"></span> <span>消防设备</span><span
-                            class="badge"></span></li>
-                    <li id="envlink"><span class="glyphicon glyphicon-tint"></span> <span>环境监控</span></li>
-                    <li id="threeDlink"><span class="glyphicon glyphicon-inbox"></span> <span>机房3D</span></li>
-                    <li id="alarmlink"><span class="glyphicon glyphicon-bell"></span> <span>报警分析</span></li>
-                    <li id="datalink"><span class="glyphicon glyphicon-list-alt"></span> <span>数据记录</span></li>
-                </ul>
+                <!--<ul id="navbarTab">-->
+                <!--&lt;!&ndash;<li id="homelink"><span class="glyphicon glyphicon-home"></span> <span>首页大屏</span></li>&ndash;&gt;-->
+                <!--<li id="eleclink"><span class="glyphicon glyphicon-flash"></span> <span>电力设施</span><span-->
+                <!--class="badge"></span></li>-->
+                <!--<li id="airlink"><span class="glyphicon glyphicon-scale"></span> <span>精密空调</span><span-->
+                <!--class="badge"></span></li>-->
+                <!--<li id="UPSlink"><span class="glyphicon glyphicon-hdd"></span> <span>UPS设备</span><span-->
+                <!--class="badge"></span></li>-->
+                <!--<li id="securelink"><span class="glyphicon glyphicon-cd"></span> <span>安防设施</span><span-->
+                <!--class="badge"></span></li>-->
+                <!--<li id="firelink"><span class="glyphicon glyphicon-fire"></span> <span>消防设备</span><span-->
+                <!--class="badge"></span></li>-->
+                <!--<li id="envlink"><span class="glyphicon glyphicon-tint"></span> <span>环境监控</span></li>-->
+                <!--<li id="threeDlink"><span class="glyphicon glyphicon-inbox"></span> <span>机房3D</span></li>-->
+                <!--<li id="alarmlink"><span class="glyphicon glyphicon-bell"></span> <span>报警分析</span></li>-->
+                <!--<li id="datalink"><span class="glyphicon glyphicon-list-alt"></span> <span>数据记录</span></li>-->
+                <!--</ul>-->
 
                 <button type="button" id="manageMenu" class="btn btn-primary" data-toggle="tooltip" title="需要管理员权限">管
                     理
@@ -84,7 +86,7 @@
             <!-- END RIGHT TOP NAV -->
             <!-- BEGIN CONTAINER -->
             <div class="container">
-                <div id="container_body" class="container_body"></div>
+                <router-view id="container_body" class="container_body"></router-view>
             </div>
             <!-- END CONTAINER -->
             <!-- BEGIN FOOTER -->
@@ -92,45 +94,6 @@
             <!-- END FOOTER -->
         </div>
         <!-- END RIGHT BODY-->
-        <!-- 修改密码模态框 -->
-        <div class="modal fade" id="psdModal" aria-labelledby="psdModalLabel">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="modal-title" id="psdModalLabel"></h4>
-                    </div>
-                    <div class="modal-body">
-                        <form id="psdForm">
-                            <div class="form-group">
-                                <label for="oldPsd" class="control-label">旧密码</label>
-                                <input type="password" class="form-control" id="oldPsd" name="oldPsd"
-                                       placeholder="请输入旧密码" required="required">
-                            </div>
-                            <div class="form-group">
-                                <label for="newPsd" class="control-label">新密码</label>
-                                <input type="password" class="form-control" id="newPsd" name="newPsd"
-                                       placeholder="请输入新密码" required="required">
-                            </div>
-                            <div class="form-group">
-                                <label for="confirmPsd" class="control-label">确认密码</label>
-                                <input type="password" class="form-control" id="confirmPsd" name="confirmPsd"
-                                       placeholder="确认新密码" required="required">
-                            </div>
-                            <div id="msg"></div>
-                            <input id="userID" name="userID" hidden="hidden">
-                            <button id="form_submit" type="submit" hidden="hidden"></button>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                        <button type="button" class="btn btn-primary" id="btn_submit">确定修改</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </template>
 
@@ -152,6 +115,7 @@
     .menu {
         width: 100%;
         height: 100%;
+        display: flex;
     }
 
     .left_body {
@@ -196,6 +160,13 @@
         width: 100%;
         height: 80%;
         position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .myNavbar > a {
+        padding: 10px 0;
     }
 
     #navbarTab {
@@ -368,7 +339,7 @@
         width: 100%;
         /*display: flex;*/
         flex-direction: row;
-        border-bottom: 2px solid rgb(45,60,80);
+        border-bottom: 2px solid rgb(45, 60, 80);
         background-color: #fcfeff;
     }
 
